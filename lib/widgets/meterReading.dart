@@ -28,7 +28,7 @@ class _MeterReadingState extends State<MeterReading> {
                 ranges: <GaugeRange>[
                   GaugeRange(
                     startValue: 0,
-                    endValue: 200,
+                    endValue: 100,
                     color: AppColors.green,
                     label: 'SAFE',
                     startWidth: 25,
@@ -37,8 +37,8 @@ class _MeterReadingState extends State<MeterReading> {
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   GaugeRange(
-                    startValue: 200,
-                    endValue: 500,
+                    startValue: 100,
+                    endValue: 200,
                     color: AppColors.orange,
                     label: 'MODERATE',
                     startWidth: 25,
@@ -47,7 +47,7 @@ class _MeterReadingState extends State<MeterReading> {
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   GaugeRange(
-                    startValue: 500,
+                    startValue: 200,
                     endValue: 1000,
                     color: AppColors.red,
                     label: 'DANGER',
