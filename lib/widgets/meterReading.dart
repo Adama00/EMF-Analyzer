@@ -1,6 +1,5 @@
 import 'package:emf_analyzer/models/magnitudeProvider.dart';
 import 'package:emf_analyzer/utils/colors.dart';
-import 'package:emf_analyzer/widgets/textWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';

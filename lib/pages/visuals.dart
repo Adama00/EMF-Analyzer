@@ -124,16 +124,7 @@ class _VisualsState extends State<Visuals> {
                           yValueMapper: (LiveData value, _) =>
                               value.magnetic_field_strength,
                         ),
-                        // LineSeries<LiveData, int>(
-                        //   legendItemText: "Safety Threshold",
-                        //   onRendererCreated:
-                        //       (ChartSeriesController controller) {
-                        //     _chartSeriesController = controller;
-                        //   },
-                        //   dataSource: model.changeValues(),
-                        //   xValueMapper: (LiveData value, _) => value.time,
-                        //   yValueMapper: (LiveData value, _) => 1,
-                        // )
+                       
                       ],
                       primaryXAxis: NumericAxis(
                           isVisible: true,
@@ -174,15 +165,7 @@ class _VisualsState extends State<Visuals> {
                           yValueMapper: (LiveData value, _) =>
                               value.power_density,
                         ),
-                        // LineSeries<LiveData, int>(
-                        //   legendItemText: "Safety Threshold",
-                        //   onRendererCreated:
-                        //       (ChartSeriesController controller) {
-                        //     _chartSeriesController = controller;
-                        //   },
-                        //   xValueMapper: (LiveData value, _) => value.time,
-                        //   yValueMapper: (LiveData value, _) => 5,
-                        // )
+                       
                       ],
                       primaryXAxis: NumericAxis(
                           isVisible: true,
@@ -223,15 +206,7 @@ class _VisualsState extends State<Visuals> {
                           yValueMapper: (LiveData value, _) =>
                               value.electric_field_strength,
                         ),
-                        // LineSeries<LiveData, int>(
-                        //   legendItemText: "Safety Threshold",
-                        //   onRendererCreated:
-                        //       (ChartSeriesController controller) {
-                        //     _chartSeriesController = controller;
-                        //   },
-                        //   xValueMapper: (LiveData value, _) => value.time,
-                        //   yValueMapper: (LiveData value, _) => 5,
-                        // )
+                        
                       ],
                       primaryXAxis: NumericAxis(
                           isVisible: true,

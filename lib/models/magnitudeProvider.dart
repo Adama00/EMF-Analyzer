@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:dchs_motion_sensors/dchs_motion_sensors.dart';
 import 'package:vector_math/vector_math_64.dart';
@@ -18,6 +19,8 @@ class MagnitudeProvider extends ChangeNotifier {
   int totalPoints = 0;
   final int maxDataPoints = 40;
   List<LiveData> values = List.filled(40, LiveData(0,0,0,0,0,0,0));
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  bool _isAlertPlaying = false;
 
   Vector3 magnetometer = Vector3.zero();
   Vector3 _accelerometer = Vector3.zero();
@@ -42,6 +45,14 @@ class MagnitudeProvider extends ChangeNotifier {
         magnitude = sqrt((pow(magnetometer.x, 2)) +
             (pow(magnetometer.y, 2)) +
             (pow(magnetometer.z, 2)));
+
+        //Alarm
+        if (magnitude > 200 && !_isAlertPlaying) {
+          _playAlert();
+        } else if (magnitude <= 200 && _isAlertPlaying) {
+          _stopAlert();
+        }
+
         //magnetic field
         magnetic_field_strength = (magnitude * 1e-6) / 4 * pi * 1e-7;
 
@@ -57,6 +68,8 @@ class MagnitudeProvider extends ChangeNotifier {
         currentIndex = (currentIndex + 1)% maxDataPoints;
         totalPoints++;
 
+       
+
         notifyListeners();
       });
       notifyListeners();
@@ -67,6 +80,7 @@ class MagnitudeProvider extends ChangeNotifier {
     if (isReading) {
       _magnetometerSubscription?.cancel();
       isReading = false;
+      _stopAlert();
       notifyListeners();
     }
   }
@@ -85,9 +99,24 @@ class MagnitudeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> _playAlert() async {
+    if (!_isAlertPlaying) {
+      _isAlertPlaying = true;
+      await _audioPlayer.play(AssetSource('audio/alert-alarm.wav'), mode: PlayerMode.mediaPlayer);
+    }
+  }
+
+  Future<void> _stopAlert() async {
+    if (_isAlertPlaying) {
+      _isAlertPlaying = false;
+      await _audioPlayer.stop();
+    }
+  }
+
   @override
   void dispose() {
     _magnetometerSubscription?.cancel();
+    _audioPlayer.dispose();
     super.dispose();
   }
 }
