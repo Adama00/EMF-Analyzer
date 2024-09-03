@@ -14,7 +14,7 @@ class _MainReadingState extends State<MainReading> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 20),
+        // SizedBox(height: 20),
         Consumer<MagnitudeProvider>(
           builder: (context, model, child) => Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -49,9 +49,11 @@ class _MainReadingState extends State<MainReading> {
                   ],
                 ),
               ),
+              SizedBox(height: 45,)
             ],
           ),
         ),
+        SizedBox(height: 20,)
       ],
     );
   }

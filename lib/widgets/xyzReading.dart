@@ -15,7 +15,7 @@ class _XYZReadingState extends State<XYZReading> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 10),
+        // SizedBox(height: 10),
         Text('Update Interval'),
         Consumer<MagnitudeProvider>(
           builder: (context, model, child) => Row(
