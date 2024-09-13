@@ -1,9 +1,10 @@
+// ignore_for_file: unused_import, unused_field
+
 import 'dart:async';
 
 import 'package:emf_analyzer/models/magnitudeProvider.dart';
 import 'package:emf_analyzer/utils/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
